@@ -68,4 +68,10 @@ public class Category {
     public void addProject(Project project) {
         projects.add(project);
     }
+
+    public void addProject(String name, String description, Color color, boolean internal, boolean active) {
+        projects.add(
+                new Project(name, description, color, internal, active)
+        );
+    }
 }

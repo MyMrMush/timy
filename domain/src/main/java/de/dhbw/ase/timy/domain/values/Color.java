@@ -32,18 +32,6 @@ public class Color {
         return blue;
     }
 
-    public void setRed(int red) {
-        this.red = red;
-    }
-
-    public void setGreen(int green) {
-        this.green = green;
-    }
-
-    public void setBlue(int blue) {
-        this.blue = blue;
-    }
-
     @Override
     public String toString() {
         return String.format("#%02x%02x%02x", red, green, blue);
