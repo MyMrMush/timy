@@ -5,6 +5,8 @@ import de.dhbw.ase.timy.domain.entities.category.category.CategoryBridgeReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public class CategoryRepository implements CategoryBridgeRepository {
 
@@ -17,8 +19,8 @@ public class CategoryRepository implements CategoryBridgeRepository {
     }
 
     @Override
-    public void findById(int id) {
-        this.categorySpringRepository.findById(id);
+    public Optional<Category> findById(int id) {
+        return this.categorySpringRepository.findById(id);
     }
 
     @Override
