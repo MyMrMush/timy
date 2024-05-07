@@ -2,10 +2,7 @@ package de.dhbw.ase.timy.domain.entities.category.category;
 
 import de.dhbw.ase.timy.domain.entities.category.project.Project;
 import de.dhbw.ase.timy.domain.values.Color;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,7 +19,7 @@ public class Category {
     private LocalDateTime created;
     private LocalDateTime updated;
 
-    @OneToMany(mappedBy = "categoryId")
+    @OneToMany(mappedBy = "categoryId", cascade = CascadeType.ALL)
     private List<Project> projects;
 
     public Category(String name, String description, Color color) {

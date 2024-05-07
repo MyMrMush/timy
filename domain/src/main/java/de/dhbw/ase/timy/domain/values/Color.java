@@ -55,6 +55,7 @@ public class Color {
             return null;
         }
         if (color.length() != 7) {
+            System.out.println(color);
             throw new IllegalArgumentException("Color must be in the format #RRGGBB");
         }
         if (color.charAt(0) != '#') {

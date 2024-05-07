@@ -45,7 +45,7 @@ public class CategoryController {
 
     @PostMapping("/")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Category created"),
+            @ApiResponse(responseCode = "200", description = "Category created"),
             @ApiResponse(responseCode = "400", description = "Invalid input")
     })
     public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO categoryDTO) {
