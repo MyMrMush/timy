@@ -5,6 +5,9 @@ import de.dhbw.ase.timy.domain.entities.category.project.ProjectBridgeRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public class ProjectRepository implements ProjectBridgeRepository {
 
@@ -17,8 +20,13 @@ public class ProjectRepository implements ProjectBridgeRepository {
     }
 
     @Override
-    public void findById(int id) {
-        this.projectSpringRepository.findById(id);
+    public Optional<Project> findById(int id) {
+        return this.projectSpringRepository.findById(id);
+    }
+
+    @Override
+    public List<Project> findAll() {
+        return this.projectSpringRepository.findAll();
     }
 
     @Override

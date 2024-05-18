@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -116,5 +117,9 @@ public class Booking {
     public void setEnd(LocalDateTime end) {
         this.end = end;
         this.updated = LocalDateTime.now();
+    }
+
+    public long getDuration() {
+        return Duration.between(start, end).toMinutes();
     }
 }

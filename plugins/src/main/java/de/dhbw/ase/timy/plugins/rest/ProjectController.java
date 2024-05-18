@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Tag(name = "Project")
 @RequestMapping("/project")
@@ -41,6 +43,16 @@ public class ProjectController {
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved all Projects")
+    })
+    public ResponseEntity<List<ProjectDTO>> getProjects() {
+        List<Project> projects = categoryService.findAllProjects();
+        List<ProjectDTO> projectDTOs = projects.stream().map(projectToDTOMapper).toList();
+        return ResponseEntity.ok(projectDTOs);
     }
 
     @PostMapping("/")

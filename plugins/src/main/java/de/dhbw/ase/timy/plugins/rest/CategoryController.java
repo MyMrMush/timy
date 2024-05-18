@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Tag(name = "Category")
 @RequestMapping("/category")
@@ -41,6 +43,16 @@ public class CategoryController {
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved all Categories")
+    })
+    public ResponseEntity<List<CategoryDTO>> getCategories() {
+        List<Category> categories = categoryService.findAllCategories();
+        List<CategoryDTO> categoryDTOs = categories.stream().map(categoryToDTOMapper).toList();
+        return ResponseEntity.ok(categoryDTOs);
     }
 
     @PostMapping("/")

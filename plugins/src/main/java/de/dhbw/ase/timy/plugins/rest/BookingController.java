@@ -1,6 +1,7 @@
 package de.dhbw.ase.timy.plugins.rest;
 
 import de.dhbw.ase.timy.adapters.representations.BookingDTO;
+import de.dhbw.ase.timy.adapters.representations.DateRangeDTO;
 import de.dhbw.ase.timy.adapters.representations.mappers.booking.BookingToDTOMapper;
 import de.dhbw.ase.timy.adapters.representations.mappers.booking.DTOToBookingMapper;
 import de.dhbw.ase.timy.application.services.BookingService;
@@ -13,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @Tag(name = "Booking")
@@ -44,6 +48,16 @@ public class BookingController {
 		}
 	}
 
+	@GetMapping("s/")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Successfully retrieved all Bookings")
+	})
+	public ResponseEntity<List<BookingDTO>> getBookings() {
+		List<Booking> bookings = bookingService.findAllBookings();
+		List<BookingDTO> bookingDTOs = bookings.stream().map(bookingToDTOMapper).toList();
+		return ResponseEntity.ok(bookingDTOs);
+	}
+
 	@PostMapping("/")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "201", description = "Booking created"),
@@ -54,6 +68,8 @@ public class BookingController {
 			Booking booking = dtoToBookingMapper.apply(bookingDTO);
 			bookingService.createBooking(booking);
 			return ResponseEntity.status(HttpStatus.CREATED).body(bookingToDTOMapper.apply(booking));
+		} catch (EntityNotFoundException e){
+			return ResponseEntity.notFound().build();
 		} catch (Exception e){
 			return ResponseEntity.badRequest().build();
 		}
@@ -88,6 +104,26 @@ public class BookingController {
 			return ResponseEntity.noContent().build();
 		} catch (EntityNotFoundException e){
 			return ResponseEntity.notFound().build();
+		}
+	}
+
+	@PostMapping("/optimise")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Bookings optimised"),
+			@ApiResponse(responseCode = "404", description = "No bookings found"),
+			@ApiResponse(responseCode = "400", description = "Invalid input")
+	})
+	public ResponseEntity<List<BookingDTO>> optimiseBookings(@RequestBody DateRangeDTO timeRange){
+		try{
+			LocalDate start = timeRange.getStart();
+			LocalDate end = timeRange.getEnd();
+			List<Booking> optimisedBookings = bookingService.optimiseBookings(start, end);
+			List<BookingDTO> optimisedBookingsDTOs = optimisedBookings.stream().map(bookingToDTOMapper).toList();
+			return ResponseEntity.ok(optimisedBookingsDTOs);
+		} catch (EntityNotFoundException e){
+			return ResponseEntity.notFound().build();
+		} catch (Exception e){
+			return ResponseEntity.badRequest().build();
 		}
 	}
 }

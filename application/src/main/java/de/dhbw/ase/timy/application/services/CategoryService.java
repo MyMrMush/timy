@@ -9,6 +9,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryService {
     private final CategoryBridgeRepository categoryRepository;
@@ -25,6 +27,10 @@ public class CategoryService {
             throw new EntityExistsException("Category with id " + category.getId() + " already exists");
         });
         categoryRepository.save(category);
+    }
+
+    public List<Category> findAllCategories() {
+        return categoryRepository.findAll();
     }
 
     public Category findCategoryById(int id) {
@@ -44,6 +50,10 @@ public class CategoryService {
     public Project findProjectById(int projectId, int categoryId) {
         Category category = findCategoryById(categoryId);
         return category.getProjects().stream().filter(p -> p.getId() == projectId).findFirst().orElseThrow(() -> new EntityNotFoundException("Project with id " + projectId + " does not exist in category with id " + categoryId));
+    }
+
+    public List<Project> findAllProjects() {
+        return projectRepository.findAll();
     }
 
     public void createProject(Project project) {
