@@ -1,0 +1,864 @@
+{
+	"info": {
+		"_postman_id": "6902cba4-d7bf-459d-b2c0-a5f937de087e",
+		"name": "Timy Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18022858"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"This is a category\",\n    \"description\": \"A brief description\",\n    \"color\": \"#ffffff\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://timy.mush-it.com/category/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/category/1",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/category/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"This is an updated category\",\n    \"description\": \"A brief description\",\n    \"color\": \"#eeeeee\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://timy.mush-it.com/category/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/category/1",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Create Project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sample Project\",\n  \"description\": \"A brief description\",\n  \"color\": \"#333333\",\n  \"internal\": true,\n  \"active\": true,\n  \"categoryId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://timy.mush-it.com/project/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"project",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/project/1/1",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"project",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/project/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"project",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Sample Project Updated\",\n    \"description\": \"A brief description\",\n    \"color\": \"#333333\",\n    \"internal\": true,\n    \"active\": true,\n    \"categoryId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://timy.mush-it.com/project/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"project",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/project/1/1",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"project",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryId\": 1,\n    \"projectId\": 1,\n    \"title\": \"Booking\",\n    \"description\": \"This si a booking\",\n    \"start\": \"2024-05-07T08:00Z\",\n    \"end\": \"2024-05-07T08:45Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://timy.mush-it.com/booking/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"booking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Booking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/booking/1",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/booking/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"booking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Booking",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"categoryId\": 1,\n    \"projectId\": 1,\n    \"title\": \"Booking\",\n    \"description\": \"This is a booking\",\n    \"start\": \"2024-05-07T08:00Z\",\n    \"end\": \"2024-05-07T08:45Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://timy.mush-it.com/booking/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"booking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Booking",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/booking/1",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Optimise Bookings",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start\": \"2024-05-07\",\n    \"end\": \"2024-05-07\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://timy.mush-it.com/booking/optimise",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"booking",
+								"optimise"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Create Report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"A Report\",\n    \"description\": \"For the Shareholders\",\n    \"start\": \"2024-05-07\",\n    \"end\": \"2024-05-07\",\n    \"categoryIds\": [],\n    \"projectIds\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://timy.mush-it.com/report/",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"report",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://timy.mush-it.com/report/1",
+							"protocol": "https",
+							"host": [
+								"timy",
+								"mush-it",
+								"com"
+							],
+							"path": [
+								"report",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scripts",
+			"item": [
+				{
+					"name": "Set up some Bookings",
+					"item": [
+						{
+							"name": "Create Category: Internal",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Internal\",\n    \"description\": \"All internal Projects\",\n    \"color\": \"#ffffff\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/category/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Project: Internal Learning",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Learning\",\n  \"description\": \"Use this when learning new stuff\",\n  \"color\": \"#333333\",\n  \"internal\": true,\n  \"active\": true,\n  \"categoryId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/project/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"project",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Project: Internal Other Stuff",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Other Stuff\",\n  \"description\": \"Use this when nothing else applies\",\n  \"color\": \"#333333\",\n  \"internal\": true,\n  \"active\": true,\n  \"categoryId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/project/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"project",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Category: Internal Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"DHBW\",\n    \"description\": \"All DHBW Projects\",\n    \"color\": \"#ffffff\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/category/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Project: Internal Learning Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Advanced Software Engineering\",\n  \"description\": \"Use this for ASE\",\n  \"color\": \"#333333\",\n  \"internal\": false,\n  \"active\": true,\n  \"categoryId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/project/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"project",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Project: Internal Other Stuff Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Verteilte Systeme\",\n  \"description\": \"Use this for VT Systeme\",\n  \"color\": \"#333333\",\n  \"internal\": false,\n  \"active\": true,\n  \"categoryId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/project/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"project",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Booking 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoryId\": 1,\n    \"projectId\": 1,\n    \"title\": \"Learning Postman Scripts\",\n    \"description\": \"This is a booking for learning some Postman Scripts to automate some requests\",\n    \"start\": \"2024-05-07T08:00Z\",\n    \"end\": \"2024-05-07T08:45Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/booking/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"booking",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Booking 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoryId\": 2,\n    \"projectId\": 3,\n    \"title\": \"Developing ASE\",\n    \"description\": \"This is a booking for continuing Development for my ASE Project\",\n    \"start\": \"2024-05-07T09:00Z\",\n    \"end\": \"2024-05-07T09:45Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/booking/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"booking",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Booking 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoryId\": 1,\n    \"projectId\": 1,\n    \"title\": \"Learning\",\n    \"description\": \"Revising ANKI Cards\",\n    \"start\": \"2024-05-07T11:00Z\",\n    \"end\": \"2024-05-07T11:30Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/booking/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"booking",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Booking 4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoryId\": 1,\n    \"projectId\": 2,\n    \"title\": \"Personal Stuff\",\n    \"description\": \"Tying up some lose ends\",\n    \"start\": \"2024-05-07T13:00Z\",\n    \"end\": \"2024-05-07T13:15Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/booking/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"booking",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Report 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"A Report\",\n    \"description\": \"For the Shareholders\",\n    \"start\": \"2024-05-07\",\n    \"end\": \"2024-05-07\",\n    \"categoryIds\": [],\n    \"projectIds\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/report/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"report",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Report 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"A Report\",\n    \"description\": \"For the Shareholders\",\n    \"start\": \"2024-05-07\",\n    \"end\": \"2024-05-07\",\n    \"categoryIds\": [1],\n    \"projectIds\": [1,2]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://timy.mush-it.com/report/",
+									"protocol": "https",
+									"host": [
+										"timy",
+										"mush-it",
+										"com"
+									],
+									"path": [
+										"report",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
