@@ -1,4 +1,5 @@
 ![Test](https://github.com/MyMrMush/Timy/actions/workflows/test.yml/badge.svg)
+![Deploy](https://github.com/MyMrMush/Timy/actions/workflows/deploy.yml/badge.svg)
 
 # Timy
 A REST API for time tracking demonstrating Domain-Driven Design (DDD) and Clean Architecture principles.
