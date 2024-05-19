@@ -48,7 +48,7 @@ public class BookingController {
 		}
 	}
 
-	@GetMapping("s/")
+	@GetMapping("/")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Successfully retrieved all Bookings")
 	})
