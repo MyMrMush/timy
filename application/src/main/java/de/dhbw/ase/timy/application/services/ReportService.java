@@ -2,6 +2,7 @@ package de.dhbw.ase.timy.application.services;
 
 import de.dhbw.ase.timy.domain.entities.booking.booking.Booking;
 import de.dhbw.ase.timy.domain.entities.category.category.Category;
+import de.dhbw.ase.timy.domain.entities.report.bookingrep.BookingReportRepresentation;
 import de.dhbw.ase.timy.domain.entities.report.report.Report;
 import de.dhbw.ase.timy.domain.entities.report.report.ReportBridgeRepository;
 import de.dhbw.ase.timy.domain.services.ReportBuilder;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -55,5 +57,18 @@ public class ReportService {
 
     public Report findReportById(int id) {
         return reportRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Report with id " + id + " does not exist"));
+    }
+
+    public List<BookingReportRepresentation> getBookingFromReportFiltered(int reportId, int categoryId, int projectId) {
+        Report report =  reportRepository.findById(reportId).orElseThrow(() -> new EntityNotFoundException("Report with id " + reportId + " does not exist"));
+        List<BookingReportRepresentation> bookings =new ArrayList<>();
+
+        for (BookingReportRepresentation booking: report){
+            if(booking.getCategoryId() == categoryId && booking.getProjectId() == projectId){
+                bookings.add(booking);
+            }
+        }
+
+        return bookings;
     }
 }

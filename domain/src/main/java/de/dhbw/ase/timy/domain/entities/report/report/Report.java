@@ -6,10 +6,11 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Iterator;
 import java.util.List;
 
 @Entity
-public class Report implements Descriptive {
+public class Report implements Descriptive, Iterable<BookingReportRepresentation> {
     @Id
     @GeneratedValue
     private int id;
@@ -77,5 +78,10 @@ public class Report implements Descriptive {
     @Override
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public Iterator<BookingReportRepresentation> iterator() {
+        return bookings.iterator();
     }
 }
