@@ -1,6 +1,8 @@
 package de.dhbw.ase.timy.domain.entities.booking.booking;
 
 import de.dhbw.ase.timy.domain.services.DateTimeValidator;
+import de.dhbw.ase.timy.domain.templates.Descriptive;
+import de.dhbw.ase.timy.domain.templates.Timestamped;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,13 +13,13 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-public class Booking {
+public class Booking implements Descriptive, Timestamped {
     @Id
     @GeneratedValue
     private int id;
     private int categoryId;
     private int projectId;
-    private String title;
+    private String name;
     private String description;
     @Column(name = "start_date")
     private LocalDateTime start;
@@ -26,10 +28,10 @@ public class Booking {
     private LocalDateTime created;
     private LocalDateTime updated;
 
-    public Booking(int categoryId, int projectId, String title, String description, LocalDateTime start, LocalDateTime end) {
+    public Booking(int categoryId, int projectId, String name, String description, LocalDateTime start, LocalDateTime end) {
         this.categoryId = categoryId;
         this.projectId = projectId;
-        this.title = Objects.requireNonNull(title, "The title must not be null.");
+        this.name = Objects.requireNonNull(name, "The title must not be null.");
         this.description = Objects.requireNonNull(description, "The description must not be null.");
         if  (start == null || end == null || !DateTimeValidator.isEndAfterStart(start, end)) {
             throw new IllegalArgumentException("The end date must be after the start date and both must be valid.");
@@ -40,8 +42,18 @@ public class Booking {
         this.updated = LocalDateTime.now();
     }
 
-    public Booking(int id, int categoryId, int projectId, String title, String description, LocalDateTime start, LocalDateTime end) {
-        this(categoryId, projectId, title, description, start, end);
+    @Override
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    @Override
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
+    }
+
+    public Booking(int id, int categoryId, int projectId, String name, String description, LocalDateTime start, LocalDateTime end) {
+        this(categoryId, projectId, name, description, start, end);
         this.id = id;
     }
 
@@ -60,10 +72,12 @@ public class Booking {
         return projectId;
     }
 
-    public String getTitle() {
-        return title;
+    @Override
+    public String getName() {
+        return name;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
@@ -99,11 +113,13 @@ public class Booking {
         this.updated = LocalDateTime.now();
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public void setName(String name) {
+        this.name = name;
         this.updated = LocalDateTime.now();
     }
 
+    @Override
     public void setDescription(String description) {
         this.description = description;
         this.updated = LocalDateTime.now();

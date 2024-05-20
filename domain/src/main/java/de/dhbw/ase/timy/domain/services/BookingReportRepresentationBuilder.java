@@ -14,7 +14,7 @@ public abstract class BookingReportRepresentationBuilder {
         bookingReportRepresentation.setCategoryName(category.getName());
         bookingReportRepresentation.setProjectId(booking.getProjectId());
         bookingReportRepresentation.setProjectName(category.getProjects().stream().filter(project -> project.getId() == booking.getProjectId()).findFirst().get().getName());
-        bookingReportRepresentation.setTitle(booking.getTitle());
+        bookingReportRepresentation.setTitle(booking.getName());
         bookingReportRepresentation.setDescription(booking.getDescription());
         bookingReportRepresentation.setStart(booking.getStart());
         bookingReportRepresentation.setEnd(booking.getEnd());

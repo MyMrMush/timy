@@ -23,7 +23,7 @@ public class BookingToDTOMapper implements Function<Booking, BookingDTO> {
     		   booking.getId(),
                booking.getCategoryId(),
                booking.getProjectId(),
-               booking.getTitle(),
+               booking.getName(),
                 booking.getDescription(),
                 booking.getStart(),
                 booking.getEnd()

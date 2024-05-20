@@ -1,5 +1,7 @@
 package de.dhbw.ase.timy.domain.entities.category.project;
 
+import de.dhbw.ase.timy.domain.templates.Descriptive;
+import de.dhbw.ase.timy.domain.templates.Timestamped;
 import de.dhbw.ase.timy.domain.values.Color;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +10,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-public class Project {
+public class Project implements Descriptive, Timestamped {
     @Id
     @GeneratedValue
     private int id;
@@ -103,5 +105,25 @@ public class Project {
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
         this.updated = LocalDateTime.now();
+    }
+
+    @Override
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    @Override
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    @Override
+    public LocalDateTime getUpdated() {
+        return updated;
+    }
+
+    @Override
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
     }
 }

@@ -6,16 +6,16 @@ public class BookingDTO {
     private int id;
     private int categoryId;
     private int projectId;
-    private String title;
+    private String name;
     private String description;
     private LocalDateTime start;
     private LocalDateTime end;
 
-    public BookingDTO(int id, int categoryId, int projectId, String title, String description, LocalDateTime start, LocalDateTime end) {
+    public BookingDTO(int id, int categoryId, int projectId, String name, String description, LocalDateTime start, LocalDateTime end) {
         this.id = id;
         this.categoryId = categoryId;
         this.projectId = projectId;
-        this.title = title;
+        this.name = name;
         this.description = description;
         this.start = start;
         this.end = end;
@@ -45,12 +45,12 @@ public class BookingDTO {
         this.projectId = projectId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {

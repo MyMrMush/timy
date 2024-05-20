@@ -1,6 +1,7 @@
 package de.dhbw.ase.timy.domain.entities.report.report;
 
 import de.dhbw.ase.timy.domain.entities.report.bookingrep.BookingReportRepresentation;
+import de.dhbw.ase.timy.domain.templates.Descriptive;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -8,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-public class Report {
+public class Report implements Descriptive {
     @Id
     @GeneratedValue
     private int id;
@@ -66,5 +67,15 @@ public class Report {
 
     public LocalDateTime getCreated() {
         return created;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

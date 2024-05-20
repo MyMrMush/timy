@@ -1,6 +1,8 @@
 package de.dhbw.ase.timy.domain.entities.category.category;
 
 import de.dhbw.ase.timy.domain.entities.category.project.Project;
+import de.dhbw.ase.timy.domain.templates.Descriptive;
+import de.dhbw.ase.timy.domain.templates.Timestamped;
 import de.dhbw.ase.timy.domain.values.Color;
 import jakarta.persistence.*;
 
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Category {
+public class Category implements Descriptive, Timestamped {
     @Id
     @GeneratedValue
     private int id;
@@ -46,10 +48,12 @@ public class Category {
         return id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
@@ -70,11 +74,13 @@ public class Category {
         return updated;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
         this.updated = LocalDateTime.now();
     }
 
+    @Override
     public void setDescription(String description) {
         this.description = description;
         this.updated = LocalDateTime.now();
@@ -105,5 +111,15 @@ public class Category {
     public void setProjects(List<Project> projects) {
         this.projects = projects;
         this.updated = LocalDateTime.now();
+    }
+
+    @Override
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    @Override
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
     }
 }

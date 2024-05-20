@@ -20,7 +20,7 @@ public class DTOToBookingMapper implements Function<BookingDTO, Booking> {
             bookingDTO.getId(),
             bookingDTO.getCategoryId(),
             bookingDTO.getProjectId(),
-            bookingDTO.getTitle(),
+            bookingDTO.getName(),
             bookingDTO.getDescription(),
             bookingDTO.getStart(),
             bookingDTO.getEnd()
@@ -30,7 +30,7 @@ public class DTOToBookingMapper implements Function<BookingDTO, Booking> {
     public Booking update(Booking oldBooking, BookingDTO newBookingDTO) {
         oldBooking.setCategoryId(newBookingDTO.getCategoryId());
         oldBooking.setProjectId(newBookingDTO.getProjectId());
-        oldBooking.setTitle(newBookingDTO.getTitle());
+        oldBooking.setName(newBookingDTO.getName());
         oldBooking.setDescription(newBookingDTO.getDescription());
         oldBooking.setStart(newBookingDTO.getStart());
         oldBooking.setEnd(newBookingDTO.getEnd());
